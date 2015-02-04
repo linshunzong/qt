@@ -18,5 +18,6 @@ MyClass::Priority MyClass::priority() const
 QString MyClass::toString()
 {
     int p = this->m_priority;
+    QString ret;
     return  ret.sprintf("%d",p);
 }
