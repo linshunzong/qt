@@ -5,7 +5,7 @@
 
 
 /**
- * @brief  属性使用
+ * @brief  属性测试
  * @param argc
  * @param argv
  * @return
@@ -20,11 +20,20 @@ int main(int argc, char *argv[])
     myclass->setPriority(MyClass::VeryHigh);
     qDebug()<<myclass->toString();
 
+    myclass->setVersion("v0.0.1");
+    qDebug()<<myclass->version();
+
+
    //2.通过QObject来设置
     //测试1
     QObject* object = myclass;
     object->setProperty("priority","VeryHigh");//枚举类型在MyClass中声明并被使用Q_ENUMS()注册到元数据对象系统中。这使得枚举值可以在调用setProperty()时做为字符串使用。如果枚举类型是在其它类中声明的，那么我们就需要用枚举的全名（如OtherClass::Priority)，并且这个其它类也必须从QObject中派生并且也要注册枚举类型。
     qDebug()<<object->property("priority");
+
+    qDebug()<<object->property("version").toString();
+    object->setProperty("version","v0.0.2");
+    qDebug()<<object->property("version").toString();
+
    //测试2
     object->setProperty("priority",MyClass::VeryLow);
     qDebug()<<object->property("priority");
