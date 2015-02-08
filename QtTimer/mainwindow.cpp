@@ -3,6 +3,7 @@
   *2.使用QTimer定时器类
   *3.使用QTimer::singleShot()静态方法，该方法只会触发一次
   *
+  *定时器的精确性依赖于操作系统和硬件，大多数平台支持20ms的精确度。
   */
 
 #include "mainwindow.h"
